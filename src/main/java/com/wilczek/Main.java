@@ -4,8 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -18,9 +17,15 @@ public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class,args);
     }
-    @GetMapping("/")
-    public GreetResponse greet(){
-        return new GreetResponse("Hello",
+//    @RequestMapping(method = RequestMethod.GET,value = "/test")
+    @GetMapping("/greet")
+    public GreetResponse greet(
+            @RequestParam(value = "name", required = false) String mess,
+            @RequestParam(value = "surname", required = false) String sur)
+    {
+        String getMessage = mess == null || mess.isBlank() ? "Hello" : "Hello " + mess;
+        String surname = sur == null || sur.isBlank() ? getMessage : getMessage + " " + sur;
+        return new GreetResponse(surname,
                 List.of("Java","JS","Python"),
                 List.of(new Person("Bartek","Zawada"),
                         new Person("Karol","Buta"),
