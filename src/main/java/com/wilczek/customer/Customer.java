@@ -1,17 +1,33 @@
 package com.wilczek.customer;
 
 
+import jakarta.persistence.*;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
 import java.util.Objects;
 
 // Model danych
+@Entity
 public class Customer{
+
+    @Id
+    @SequenceGenerator(name = "customer_id_sequence",sequenceName = "customer_id_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "customer_id_sequence")
     private Integer id;
+    @Column(nullable = false)
     private Integer age;
+    @Column(nullable = false,length = 70)
     private String name, email;
 
     public Customer(){}
     public Customer(Integer id, String name, String email,Integer age) {
         this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
+    public Customer( String name, String email,Integer age) {
         this.name = name;
         this.email = email;
         this.age = age;
@@ -33,6 +49,7 @@ public class Customer{
     public Integer getAge() {
         return age;
     }
+
 
     public void setAge(Integer age) {
         this.age = age;

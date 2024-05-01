@@ -1,5 +1,8 @@
 package com.wilczek;
+import com.wilczek.customer.Customer;
+import com.wilczek.customer.CustomerRepository;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,7 +27,19 @@ public class Main {
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(Main.class, args);
 
-        printBeans(applicationContext);
+//        printBeans(applicationContext);
+    }
+
+    @Bean
+    CommandLineRunner runner(CustomerRepository customerRepository){
+        return args -> {
+            Customer alex = new Customer("Alex","alex@gmail.com",21);
+            Customer jamila = new Customer("Jamila","jamila@gmail.com",19);
+            Customer jacob = new Customer("Jacob","jacob@gmail.com",22);
+            customerRepository.saveAll(List.of(alex,jamila,jacob));
+            customerRepository.save(new Customer("John","john@gmail.com",41));
+            customerRepository.delete(alex);
+        };
     }
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) // Domyślna wartość zakresu, w której używana jest pojedyńcza instancja na cały kontener

@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Optional;
 
 // fake database
-@Repository()
-public class CustomerDataAccessService implements CastomerDAO{
+@Repository("List")
+public class CustomerListDataAccessService implements CastomerDAO{
 
     private static List<Customer> customers;
 

@@ -1,6 +1,7 @@
 package com.wilczek.customer;
 
 import com.wilczek.exceptions.ResourceNotFound;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public class CustomerService {
 
     private final CastomerDAO castomerDAO;
 
-    public CustomerService(CastomerDAO castomerDAO) {
+    public CustomerService(@Qualifier("JPA") CastomerDAO castomerDAO) {
         this.castomerDAO = castomerDAO;
     }
     public List<Customer> getAllCustomers(){
