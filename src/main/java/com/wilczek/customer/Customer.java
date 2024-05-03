@@ -14,10 +14,11 @@ public class Customer{
     @SequenceGenerator(name = "customer_id_sequence",sequenceName = "customer_id_sequence")
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "customer_id_sequence")
     private Integer id;
-    @Column(nullable = false)
-    private Integer age;
     @Column(nullable = false,length = 70)
     private String name, email;
+    @Column(nullable = false)
+    private Integer age;
+
 
     public Customer(){}
     public Customer(Integer id, String name, String email,Integer age) {

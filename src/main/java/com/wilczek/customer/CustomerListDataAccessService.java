@@ -32,4 +32,40 @@ public class CustomerListDataAccessService implements CastomerDAO{
                 .filter(c -> c.getId().equals(id))
                 .findFirst();
     }
+
+    @Override
+    public void insertCustomer(Customer customer) {
+        customers.add(customer);
+    }
+
+    @Override
+    public void deleteCustomerById(Integer id) {
+        customers.remove(id);
+    }
+
+    @Override
+    public void updateCustomer(Customer customer) {
+        customers.stream()
+                .filter(c -> c.getId().equals(customer.getId()))
+                .map(c1 -> c1 = customer);
+    };
+
+
+    @Override
+    public boolean existPersonWithEmail(String email) {
+//        boolean check = false;
+//        for (int i = 0; i < customers.size(); i++) {
+//            if (customers.get(i).getEmail().equals(email)){
+//                check = true;
+//                break;
+//            }else check = false;
+//        }
+//        return check;
+        return customers.stream().anyMatch(c -> c.getEmail().equals(email));
+    }
+
+    @Override
+    public boolean existPersonWithId(Integer id) {
+        return customers.stream().anyMatch(c -> c.getId().equals(id));
+    }
 }
