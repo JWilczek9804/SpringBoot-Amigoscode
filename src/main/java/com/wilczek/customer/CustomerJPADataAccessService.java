@@ -21,7 +21,7 @@ public class CustomerJPADataAccessService implements CastomerDAO{
     }
 
     @Override
-    public Optional<Customer> selectCustomerById(Integer id) {
+    public Optional<Customer> selectCustomerById(Long id) {
         return customerRepository.findById(id);
     }
 
@@ -31,7 +31,7 @@ public class CustomerJPADataAccessService implements CastomerDAO{
     }
 
     @Override
-    public void deleteCustomerById(Integer id) {
+    public void deleteCustomerById(Long id) {
         customerRepository.deleteById(id);
     }
 
@@ -47,7 +47,7 @@ public class CustomerJPADataAccessService implements CastomerDAO{
     }
 
     @Override
-    public boolean existPersonWithId(Integer id) {
+    public boolean existPersonWithId(Long id) {
         return customerRepository.existsCustomerById(id);
     }
 }

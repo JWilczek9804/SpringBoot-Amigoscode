@@ -14,9 +14,9 @@ public class CustomerListDataAccessService implements CastomerDAO{
 
     static {
         customers = new ArrayList<>();
-        Customer alex = new Customer(1,"Alex","alex@gmail.com",21);
-        Customer jamila = new Customer(2,"Jamila","jamila@gmail.com",19);
-        Customer jacob = new Customer(3,"Jacob","jacob@gmail.com",22);
+        Customer alex = new Customer(1L,"Alex","alex@gmail.com",21);
+        Customer jamila = new Customer(2L,"Jamila","jamila@gmail.com",19);
+        Customer jacob = new Customer(3L,"Jacob","jacob@gmail.com",22);
         customers.add(alex);
         customers.add(jamila);
         customers.add(jacob);
@@ -27,7 +27,7 @@ public class CustomerListDataAccessService implements CastomerDAO{
     }
 
     @Override
-    public Optional<Customer> selectCustomerById(Integer id) {
+    public Optional<Customer> selectCustomerById(Long id) {
         return customers.stream()
                 .filter(c -> c.getId().equals(id))
                 .findFirst();
@@ -39,7 +39,7 @@ public class CustomerListDataAccessService implements CastomerDAO{
     }
 
     @Override
-    public void deleteCustomerById(Integer id) {
+    public void deleteCustomerById(Long id) {
         customers.remove(id);
     }
 
@@ -65,7 +65,7 @@ public class CustomerListDataAccessService implements CastomerDAO{
     }
 
     @Override
-    public boolean existPersonWithId(Integer id) {
+    public boolean existPersonWithId(Long id) {
         return customers.stream().anyMatch(c -> c.getId().equals(id));
     }
 }

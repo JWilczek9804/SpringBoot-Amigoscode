@@ -1,6 +1,9 @@
 package com.wilczek;
+import com.github.javafaker.Faker;
+import com.github.javafaker.Name;
 import com.wilczek.customer.Customer;
 import com.wilczek.customer.CustomerRepository;
+import com.wilczek.exceptions.DuplicateResourceException;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,10 +16,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 //@SpringBootApplication
 @ComponentScan(basePackages = "com.wilczek")
@@ -33,12 +33,15 @@ public class Main {
     @Bean
     CommandLineRunner runner(CustomerRepository customerRepository){
         return args -> {
-            Customer alex = new Customer("Alex","alex@gmail.com",21);
-            Customer jamila = new Customer("Jamila","jamila@gmail.com",19);
-            Customer jacob = new Customer("Jacob","jacob@gmail.com",22);
-            customerRepository.saveAll(List.of(alex,jamila,jacob));
-            customerRepository.save(new Customer("John","john@gmail.com",41));
-            customerRepository.delete(alex);
+            var faker = new Faker();
+            Name name = faker.name();
+            String firstName = name.firstName();
+            String lastName = name.lastName();
+            Customer customer = new Customer(
+                    firstName + " " + lastName,
+                    "%s.%s@gmail.com".formatted(firstName.toLowerCase(), lastName.toLowerCase()),
+                    new Random().nextInt(20,50));
+            customerRepository.save(customer);
         };
     }
     @Bean

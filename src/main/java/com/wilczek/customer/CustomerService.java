@@ -14,13 +14,13 @@ public class CustomerService {
 
     private final CastomerDAO castomerDAO;
 
-    public CustomerService(@Qualifier("JPA") CastomerDAO castomerDAO) {
+    public CustomerService(@Qualifier("JDBC") CastomerDAO castomerDAO) {
         this.castomerDAO = castomerDAO;
     }
     public List<Customer> getAllCustomers(){
         return castomerDAO.selectAllCustomers();
     }
-    public Customer getCustomerById(Integer id){
+    public Customer getCustomerById(Long id){
         return castomerDAO.selectCustomerById(id).
                 orElseThrow(() ->
                         new ResourceNotFoundException("Customer with id [%s] has not found".formatted(id)));
@@ -36,14 +36,14 @@ public class CustomerService {
             Customer customer = new Customer(name, email, age);
             castomerDAO.insertCustomer(customer);
     }
-    public void deleteCustomer(Integer id){
+    public void deleteCustomer(Long id){
         if (!castomerDAO.existPersonWithId(id)){
             throw new ResourceNotFoundException("Customer with id %s not found".formatted(id));
         }
         castomerDAO.deleteCustomerById(id);
     }
 
-    public void updateCustomer(Integer id,CustomerUpdateRequest customerUpdateRequest){
+    public void updateCustomer(Long id,CustomerUpdateRequest customerUpdateRequest){
         Customer customer = getCustomerById(id);
 
         if (!castomerDAO.existPersonWithId(id)){
