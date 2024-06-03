@@ -1,6 +1,7 @@
 package com.wilczek;
 
 import com.github.javafaker.Faker;
+import com.wilczek.customer.Customer;
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import javax.sql.DataSource;
+import java.util.Random;
 
 @Testcontainers
 public abstract class AbstractTestContainers {
@@ -34,13 +36,18 @@ public abstract class AbstractTestContainers {
                     .withUsername("amigoscode")
                     .withPassword("password");
 
-    //Dzięki temu możemy połączyć się do naszej bazy danych z testu
+    /*
+    Poniższa adnitacja jest używana do dynamicznego dodawania właściwości do kontekstu aplikacji
+    podczas uruchamiania testów. Pozwala to na dostosowanie właściwości konfiguracyjnych
+    (np. połączenia do bazy danych) w czasie wykonywania testów, co jest szczególnie
+    przydatne przy używaniu dynamicznych zasobów, takich jak kontenery Docker.
+    */
     @DynamicPropertySource
     private static void registerDataSourceProperties(DynamicPropertyRegistry registry){
 //        registry.add(
 //                "spring.datasource.url",
 //                () -> String.format(
-//                        "jdbc:postgresql://localhost:%d/customer",
+//                        "jdbc:postgresql://localshost:%d/customer",
 //                        postgreSQLContainer.getFirstMappedPort()
 //                )
 //        );
@@ -50,7 +57,7 @@ public abstract class AbstractTestContainers {
         );
         registry.add(
                 "spring.datasource.username",
-                postgreSQLContainer::getJdbcUrl
+                postgreSQLContainer::getUsername
         );
         registry.add(
                 "spring.datasource.password",
@@ -70,5 +77,19 @@ public abstract class AbstractTestContainers {
         return new JdbcTemplate(dataSource());
     }
 
+
     protected final static Faker FAKER = new Faker();
+
+    protected String createEmail(){
+        return FAKER.internet().safeEmailAddress();
+    }
+    protected Customer createCustomer(){
+        return new Customer(
+                FAKER.name().fullName(),
+                createEmail(),
+                new Random().nextInt(30,99)
+        );
+    }
+
+
 }

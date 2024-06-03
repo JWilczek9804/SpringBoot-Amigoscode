@@ -1,13 +1,12 @@
 package com.wilczek.customer;
 
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository("JPA")
-public class CustomerJPADataAccessService implements CastomerDAO{
+public class CustomerJPADataAccessService implements CustomerDAO {
 
     private final CustomerRepository customerRepository;
 

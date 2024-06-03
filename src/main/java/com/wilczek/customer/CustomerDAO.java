@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public interface CastomerDAO {
+public interface CustomerDAO {
     List<Customer> selectAllCustomers();
 
     Optional<Customer> selectCustomerById(Long id);

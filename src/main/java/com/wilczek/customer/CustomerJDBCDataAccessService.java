@@ -1,16 +1,14 @@
 package com.wilczek.customer;
 
 import com.wilczek.exceptions.RequestValidationException;
-import com.wilczek.exceptions.ResourceNotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository("JDBC")
-public class CustomerJDBCDataAccessService implements CastomerDAO{
+public class CustomerJDBCDataAccessService implements CustomerDAO {
 
     private final JdbcTemplate jdbcTemplate;
     private final CustomerRowMapper customerRowMapper;

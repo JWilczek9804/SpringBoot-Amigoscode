@@ -18,16 +18,12 @@ import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.*;
 
-//@SpringBootApplication
-@ComponentScan(basePackages = "com.wilczek")
-@EnableAutoConfiguration
+@SpringBootApplication
 public class Main {
     //temporary db
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext applicationContext = SpringApplication.run(Main.class, args);
-
-//        printBeans(applicationContext);
+       SpringApplication.run(Main.class, args);
     }
 
     @Bean
@@ -44,18 +40,18 @@ public class Main {
             customerRepository.save(customer);
         };
     }
-    @Bean
-    @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) // Domyślna wartość zakresu, w której używana jest pojedyńcza instancja na cały kontener
-    public Foo getFoo(){
-        return new Foo("bar");
-    }
-    record Foo(String name){}
-
-    public static void printBeans(ConfigurableApplicationContext ctx) {
-
-        String[] beanDefinitionNames = ctx.getBeanDefinitionNames();
-        Arrays.stream(beanDefinitionNames).forEach(System.out::println);
-    }
+//    @Bean
+//    @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) // Domyślna wartość zakresu, w której używana jest pojedyńcza instancja na cały kontener
+//    public Foo getFoo(){
+//        return new Foo("bar");
+//    }
+//    record Foo(String name){}
+//
+//    public static void printBeans(ConfigurableApplicationContext ctx) {
+//
+//        String[] beanDefinitionNames = ctx.getBeanDefinitionNames();
+//        Arrays.stream(beanDefinitionNames).forEach(System.out::println);
+//    }
 
 
 //    @RequestMapping(method = RequestMethod.GET,value = "/test")

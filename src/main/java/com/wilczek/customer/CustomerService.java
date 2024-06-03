@@ -7,21 +7,20 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service  // Rozszerzona adnotacja @Component
 public class CustomerService {
 
-    private final CastomerDAO castomerDAO;
+    private final CustomerDAO customerDAO;
 
-    public CustomerService(@Qualifier("JDBC") CastomerDAO castomerDAO) {
-        this.castomerDAO = castomerDAO;
+    public CustomerService(@Qualifier("JPA") CustomerDAO customerDAO) {
+        this.customerDAO = customerDAO;
     }
     public List<Customer> getAllCustomers(){
-        return castomerDAO.selectAllCustomers();
+        return customerDAO.selectAllCustomers();
     }
     public Customer getCustomerById(Long id){
-        return castomerDAO.selectCustomerById(id).
+        return customerDAO.selectCustomerById(id).
                 orElseThrow(() ->
                         new ResourceNotFoundException("Customer with id [%s] has not found".formatted(id)));
     }
@@ -30,37 +29,52 @@ public class CustomerService {
         String email = customerRegistrationRequest.email();
         String name = customerRegistrationRequest.name();
         Integer age = customerRegistrationRequest.age();
-        if (castomerDAO.existPersonWithEmail(email)) {
+        if (customerDAO.existPersonWithEmail(email)) {
             throw new DuplicateResourceException("Email [%s] is already taken".formatted(email));
         }
             Customer customer = new Customer(name, email, age);
-            castomerDAO.insertCustomer(customer);
+            customerDAO.insertCustomer(customer);
     }
     public void deleteCustomer(Long id){
-        if (!castomerDAO.existPersonWithId(id)){
+        if (!customerDAO.existPersonWithId(id)){
             throw new ResourceNotFoundException("Customer with id %s not found".formatted(id));
         }
-        castomerDAO.deleteCustomerById(id);
+        customerDAO.deleteCustomerById(id);
     }
 
-    public void updateCustomer(Long id,CustomerUpdateRequest customerUpdateRequest){
-        Customer customer = getCustomerById(id);
+    public void updateCustomer(Long customerId,CustomerUpdateRequest updateRequest){
+        // TODO: for JPA use .getReferenceById(customerId) as it does does not bring object into memory and instead a reference
+        Customer customer = customerDAO.selectCustomerById(customerId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "customer with id [%s] not found".formatted(customerId)
+                ));
 
-        if (!castomerDAO.existPersonWithId(id)){
-            throw new ResourceNotFoundException("Customer with id %s not found".formatted(id));
-        }
-        if (customer.getName().equals(customerUpdateRequest.name())
-        || customer.getEmail().equals(customerUpdateRequest.email())
-        || customer.getAge().equals(customerUpdateRequest.age())){
-            throw new RequestValidationException("You trying to update the same value");
-        }
-        if (castomerDAO.existPersonWithEmail(customerUpdateRequest.email())){
-            throw new DuplicateResourceException("This email is already taken");
-        }
-        String name = customerUpdateRequest.name() == null ? customer.getName() : customerUpdateRequest.name();
-        String email = customerUpdateRequest.email() == null ? customer.getEmail() : customerUpdateRequest.email();
-        Integer age = customerUpdateRequest.age() == null ? customer.getAge() : customerUpdateRequest.age();
+        boolean changes = false;
 
-            castomerDAO.updateCustomer(new Customer(id,name,email,age));
+        if (updateRequest.name() != null && !updateRequest.name().equals(customer.getName())) {
+            customer.setName(updateRequest.name());
+            changes = true;
+        }
+
+        if (updateRequest.age() != null && !updateRequest.age().equals(customer.getAge())) {
+            customer.setAge(updateRequest.age());
+            changes = true;
+        }
+
+        if (updateRequest.email() != null && !updateRequest.email().equals(customer.getEmail())) {
+            if (customerDAO.existPersonWithEmail(updateRequest.email())) {
+                throw new DuplicateResourceException(
+                        "email already taken"
+                );
+            }
+            customer.setEmail(updateRequest.email());
+            changes = true;
+        }
+
+        if (!changes) {
+            throw new RequestValidationException("no data changes found");
+        }
+
+        customerDAO.updateCustomer(customer);
     }
 }
