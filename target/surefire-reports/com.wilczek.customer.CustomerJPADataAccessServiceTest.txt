@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.wilczek.customer.CustomerJPADataAccessServiceTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.848 s -- in com.wilczek.customer.CustomerJPADataAccessServiceTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.931 s -- in com.wilczek.customer.CustomerJPADataAccessServiceTest
