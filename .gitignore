@@ -2,7 +2,6 @@
 /shelf/
 /workspace.xml
 **/target/
-**/.idea/
 **/node_modules/
 **/*.iml
 # Editor-based HTTP Client requests
