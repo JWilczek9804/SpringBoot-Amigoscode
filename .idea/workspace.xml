@@ -4,50 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12ab23c5-3945-44f7-98ed-0ab2a6154a03" name="Changes" comment="workflow correct run">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerJDBCDataAccessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerJDBCDataAccessService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerJPADataAccessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerJPADataAccessService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerListDataAccessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerListDataAccessService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerRegistrationRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerRegistrationRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerRowMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerUpdateRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/customer/CustomerUpdateRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/exceptions/DuplicateResourceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/exceptions/DuplicateResourceException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/exceptions/RequestValidationException.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/exceptions/RequestValidationException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/wilczek/exceptions/ResourceNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/wilczek/exceptions/ResourceNotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.TestcontainersTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.TestcontainersTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.customer.CustomerJDBCDataAccessServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.customer.CustomerJDBCDataAccessServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.customer.CustomerJPADataAccessServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.customer.CustomerJPADataAccessServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.customer.CustomerRepositoryTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.customer.CustomerRepositoryTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.customer.CustomerRowMapperTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.customer.CustomerRowMapperTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.customer.CustomerServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/TEST-com.wilczek.customer.CustomerServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.TestcontainersTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.TestcontainersTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.customer.CustomerJDBCDataAccessServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.customer.CustomerJDBCDataAccessServiceTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.customer.CustomerJPADataAccessServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.customer.CustomerJPADataAccessServiceTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.customer.CustomerRepositoryTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.customer.CustomerRepositoryTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.customer.CustomerRowMapperTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.customer.CustomerRowMapperTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.customer.CustomerServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/surefire-reports/com.wilczek.customer.CustomerServiceTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/AbstractTestContainers.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/AbstractTestContainers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/TestcontainersTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/TestcontainersTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/customer/CustomerJDBCDataAccessServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/customer/CustomerJDBCDataAccessServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/customer/CustomerJPADataAccessServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/customer/CustomerJPADataAccessServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/customer/CustomerRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/customer/CustomerRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/customer/CustomerRowMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/customer/CustomerRowMapperTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/customer/CustomerServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/customer/CustomerServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/test-classes/com/wilczek/journey/CustomerIntegrationTest.class" afterDir="false" />
-    </list>
+    <list default="true" id="12ab23c5-3945-44f7-98ed-0ab2a6154a03" name="Changes" comment="workflow correct run" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -186,7 +143,7 @@
       <workItem from="1720628842481" duration="46000" />
       <workItem from="1720628948844" duration="17000" />
       <workItem from="1720629020070" duration="6481000" />
-      <workItem from="1720703950295" duration="12261000" />
+      <workItem from="1720703950295" duration="12693000" />
     </task>
     <task id="LOCAL-00001" summary="move docker compose and pin postgres to tag 16.2">
       <option name="closed" value="true" />
@@ -452,7 +409,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720724688414</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="workflow correct run">
+      <option name="closed" value="true" />
+      <created>1720727037462</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1720727037462</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
