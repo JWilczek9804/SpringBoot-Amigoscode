@@ -1,4 +1,40 @@
 -------------------------------------------------------------------------------
 Test set: com.wilczek.customer.CustomerRepositoryTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.75 s -- in com.wilczek.customer.CustomerRepositoryTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.397 s <<< FAILURE! -- in com.wilczek.customer.CustomerRepositoryTest
+com.wilczek.customer.CustomerRepositoryTest -- Time elapsed: 0.397 s <<< ERROR!
+java.nio.file.InvalidPathException: Illegal char <"> at index 0: "C:\Windows\System32
+	at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:204)
+	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:175)
+	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
+	at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
+	at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:231)
+	at java.base/java.nio.file.Path.of(Path.java:148)
+	at java.base/java.nio.file.Paths.get(Paths.java:69)
+	at org.testcontainers.utility.CommandLine.executableExists(CommandLine.java:59)
+	at org.testcontainers.utility.DockerMachineClient.isInstalled(DockerMachineClient.java:50)
+	at org.testcontainers.dockerclient.DockerMachineClientProviderStrategy.isApplicable(DockerMachineClientProviderStrategy.java:62)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+	at org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy(DockerClientProviderStrategy.java:246)
+	at org.testcontainers.DockerClientFactory.getOrInitializeStrategy(DockerClientFactory.java:150)
+	at org.testcontainers.DockerClientFactory.client(DockerClientFactory.java:186)
+	at org.testcontainers.DockerClientFactory$1.getDockerClient(DockerClientFactory.java:104)
+	at com.github.dockerjava.api.DockerClientDelegate.authConfig(DockerClientDelegate.java:108)
+	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:321)
+	at org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.start(TestcontainersExtension.java:242)
+	at org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.access$200(TestcontainersExtension.java:229)
+	at org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$null$1(TestcontainersExtension.java:56)
+	at org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$beforeAll$2(TestcontainersExtension.java:56)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testcontainers.junit.jupiter.TestcontainersExtension.beforeAll(TestcontainersExtension.java:55)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
