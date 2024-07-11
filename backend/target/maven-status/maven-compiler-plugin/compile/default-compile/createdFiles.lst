@@ -1,0 +1,15 @@
+com\wilczek\customer\CustomerDAO.class
+com\wilczek\customer\CustomerUpdateRequest.class
+com\wilczek\customer\CustomerRegistrationRequest.class
+com\wilczek\Main.class
+com\wilczek\customer\CustomerJDBCDataAccessService.class
+com\wilczek\exceptions\RequestValidationException.class
+com\wilczek\customer\CustomerController.class
+com\wilczek\customer\CustomerListDataAccessService.class
+com\wilczek\customer\CustomerRepository.class
+com\wilczek\customer\CustomerRowMapper.class
+com\wilczek\customer\CustomerService.class
+com\wilczek\exceptions\DuplicateResourceException.class
+com\wilczek\customer\CustomerJPADataAccessService.class
+com\wilczek\exceptions\ResourceNotFoundException.class
+com\wilczek\customer\Customer.class
