@@ -1,5 +1,6 @@
 name: CI - Build Backend
 
+# Create an event: Pull Request
 on:
   pull_request:
     branches:
@@ -7,10 +8,13 @@ on:
     paths:
       - backend/**
 
+# Job: build
 jobs:
   build:
+# Create a linux environment
     runs-on: ubuntu-latest
     services:
+# Create a postgres container
       postgres:
         image: postgres:16.2
         env:
@@ -24,4 +28,21 @@ jobs:
           --health-retries 5
         ports:
           - 5332:5432
+# Define path your working-directory for e.g. shell command
+    defaults:
+      run:
+        working-directory: ./backend
+# Clone own repository
+    steps:
+      - uses: actions/checkout@v4
+# Caching maven dependencies
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'maven'
+          cache-dependency-path: 'backend/pom.xml' # optional
+# Shell command
+      - name: Build and run Unit/Integration Tests with Maven
+        run: mvn -ntp -B verify
 
