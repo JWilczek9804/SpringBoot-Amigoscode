@@ -171,6 +171,7 @@
 				<configuration>
 					<from>
 						<image>eclipse-temurin:21</image>
+						<credHelper>ecr-login</credHelper>
 						<platforms>
 							<platform>
 								<architecture>arm64</architecture>
@@ -184,19 +185,12 @@
 					</from>
 					<to>
 						<image>docker.io/${docker.username}/${project.artifactId}:${project.version}</image>
+						<credHelper>gcr</credHelper>
 						<tags>
 							<tag>latest</tag>
 						</tags>
 					</to>
 				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>build</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
