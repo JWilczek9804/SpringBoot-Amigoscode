@@ -3,24 +3,15 @@ import com.github.javafaker.Faker;
 import com.github.javafaker.Name;
 import com.wilczek.customer.Customer;
 import com.wilczek.customer.CustomerRepository;
-import com.wilczek.exceptions.DuplicateResourceException;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Scope;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.*;
 
 @SpringBootApplication
 public class Main {
-    //temporary db
 
     public static void main(String[] args) {
        SpringApplication.run(Main.class, args);
