@@ -1,0 +1,14 @@
+name: Basic test push
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - backend/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      -  run: echo Test One Worked!
