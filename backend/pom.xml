@@ -15,14 +15,16 @@
 	<name>spring-boot-example</name>
 	<description>Demo project for Spring Boot</description>
 
-	<organization>
-		<name>amigoscode-api</name>
-		<url>https://hub.docker.com/repository/docker/jwilczek9804/amigoscode-api</url>
-	</organization>
+<!--	<organization>-->
+<!--		<name>amigoscode-api</name>-->
+<!--		<url>https://hub.docker.com/repository/docker/jwilczek9804/amigoscode-api</url>-->
+<!--	</organization>-->
 
     <properties>
         <java.version>21</java.version>
         <docker.username>jwilczek9804</docker.username>
+        <docker.image.name>amigoscode-api</docker.image.name>
+        <docker.image.tag/>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
     </properties>
@@ -184,7 +186,7 @@
 						</platforms>
 					</from>
 					<to>
-						<image>docker.io/${docker.username}/${project.artifactId}:${project.version}</image>
+						<image>docker.io/${docker.username}/${docker.image.name}:${docker.image.tag}</image>
 						<tags>
 							<tag>latest</tag>
 						</tags>
