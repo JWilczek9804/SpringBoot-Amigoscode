@@ -31,7 +31,7 @@ jobs:
 
     steps:
       - name: Postgres database launched successful
-        uses: >
+        run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"Postgres has run successful"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -50,19 +50,19 @@ jobs:
         id: build-number
         run: echo "BUILD_NUMBER=$(date '+%d.%m.%Y.%H.%M.%S')" >> $GITHUB_OUTPUT
       - name: Preparations to perform tests
-        uses: >
+        run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"Preparations to perform tests"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Build Package Push with Maven
         run: mvn -ntp -B verify -Ddocker.image.tag=${{steps.build-number.outputs.BUILD_NUMBER}} jib:build
       - name: Message to inform, that tests passed successfully
-        uses: >
+        run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"All tests passed successfully"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Preparation to update dockerrun.aws.json and api image
-        uses: >
+        run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"Preparation to update dockerrun.aws.json and api image"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -74,12 +74,12 @@ jobs:
           echo "Dockerrun.aws.json after updating tag"
           cat Dockerrun.aws.json
       - name: File Dockerrun.aws.json and api image have updated
-        uses: >
+        run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"File Dockerrun.aws.json and api image have updated"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Preparation to deploy file to Elastic Beanstalk
-        uses: >
+        run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"Preparation to deploy file to Elastic Beanstalk"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -95,7 +95,7 @@ jobs:
           region: ${{ secrets.EB_REGION }}
           deployment_package: backend/Dockerrun.aws.json
       - name: Information about deployment
-        uses: >
+        run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"Deployment succeed"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -107,7 +107,7 @@ jobs:
           git commit -m "Update Dockerrun.aws.json docker image with new tag ${{ steps.build-number.outputs.BUILD_NUMBER }}"
           git push
       - name: Information about status file on github repository
-        uses: >
+        run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"File Dockerrun.aws.json has committed and pushed correctly"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
