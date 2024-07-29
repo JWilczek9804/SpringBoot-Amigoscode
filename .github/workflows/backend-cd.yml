@@ -34,7 +34,7 @@ jobs:
         run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"Postgres has run successful"}'
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          -k ${{ secrets.SLACK_WEBHOOK_URL }}
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
@@ -53,19 +53,19 @@ jobs:
         run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"Preparations to perform tests"}'
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          -k ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Build Package Push with Maven
         run: mvn -ntp -B verify -Ddocker.image.tag=${{steps.build-number.outputs.BUILD_NUMBER}} jib:build
       - name: Message to inform, that tests passed successfully
         run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"All tests passed successfully"}'
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          -k ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Preparation to update dockerrun.aws.json and api image
         run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"Preparation to update dockerrun.aws.json and api image"}'
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          -k ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Update Dockerrun.aws.json api image tag with new build number
         run: |
           echo "Dockerrun.aws.json before updating tag"
@@ -77,12 +77,12 @@ jobs:
         run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"File Dockerrun.aws.json and api image have updated"}'
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          -k ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Preparation to deploy file to Elastic Beanstalk
         run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"Preparation to deploy file to Elastic Beanstalk"}'
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          -k ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v22
         with:
@@ -98,7 +98,7 @@ jobs:
         run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"Deployment succeed"}'
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          -k ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Commit and push Dockerrun.aws.json
         run: |
           git config user.name "github-actions"
@@ -110,4 +110,4 @@ jobs:
         run: >
           curl -X POST -H 'Content-type: application/json'
           --data '{"text":"File Dockerrun.aws.json has committed and pushed correctly"}'
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+          -k ${{ secrets.SLACK_WEBHOOK_URL }}
