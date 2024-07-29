@@ -30,6 +30,11 @@ jobs:
         working-directory: ./backend
 
     steps:
+      - name: Send GitHub Action trigger data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.26.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Postgres database launched successful
         run: >
           curl -X POST -H 'Content-type: application/json'
