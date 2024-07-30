@@ -119,5 +119,11 @@ jobs:
       - name: Send Slack Message
         run: >
           curl -X POST -H 'Content-type: application/json'
-          --data '{"text":" :github: All passed perfectly"}' 
+          --data '{"text":" Deployment and commit completed :github-check-mark: - http://jwilczek9804-env.eba-n2bngyfm.eu-central-1.elasticbeanstalk.com/api/v1/customers"}' 
+          ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Send Slack Message
+        if: always()
+        run: >
+          curl -X POST -H 'Content-type: application/json'
+          --data '{"text":" :github: Job Status ${{job.status}}"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
