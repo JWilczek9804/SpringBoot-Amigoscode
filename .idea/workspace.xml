@@ -7,6 +7,8 @@
     <list default="true" id="12ab23c5-3945-44f7-98ed-0ab2a6154a03" name="Changes" comment="cd">
       <change beforePath="$PROJECT_DIR$/.github/workflows/backend-cd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/backend-cd.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Dockerrun.aws.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerrun.aws.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/wilczek/PingPongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/wilczek/PingPongController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +154,9 @@
       <workItem from="1720629020070" duration="6481000" />
       <workItem from="1720703950295" duration="5176000" />
       <workItem from="1722076825608" duration="15903000" />
-      <workItem from="1722269152645" duration="11082000" />
+      <workItem from="1722269152645" duration="13223000" />
+      <workItem from="1722614597787" duration="1060000" />
+      <workItem from="1722677034973" duration="1952000" />
     </task>
     <task id="LOCAL-00001" summary="move docker compose and pin postgres to tag 16.2">
       <option name="closed" value="true" />
@@ -530,7 +534,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722331912251</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="cd">
+      <option name="closed" value="true" />
+      <created>1722333457848</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1722333457849</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
