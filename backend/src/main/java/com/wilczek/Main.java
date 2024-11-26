@@ -30,6 +30,7 @@ public class Main {
             customerRepository.save(customer);
         };
     }
+
 //    @Bean
 //    @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) // Domyślna wartość zakresu, w której używana jest pojedyńcza instancja na cały kontener
 //    public Foo getFoo(){
